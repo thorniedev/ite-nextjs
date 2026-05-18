@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com', // Your external hostname here
         pathname: '/**', // Matches all paths
+      },
+      {
+        protocol: 'https',
+        hostname: 'fakestoreapi.com', // Your external hostname here
+        pathname: '/**', // Matches all paths
       }
     ],
   },

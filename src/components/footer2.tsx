@@ -12,6 +12,7 @@ import {
 } from "@/components/shadcnblocks/logo";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 interface FooterLink {
   name: string;
@@ -45,7 +46,7 @@ type Props = Partial<Footer2Props>;
 const defaultProps: Footer2Props = {
   logo: {
     url: "https://www.shadcnblocks.com",
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/images/logo/shadcnblocks-logo.svg",
+    src: "https://www.cstad.edu.kh/_next/image?url=%2Fschool-logo%2Fistad-lms-logo.png&w=256&q=75",
     alt: "logo",
     title: "Shadcnblocks.com",
   },
@@ -115,11 +116,12 @@ const Footer2 = (props: Props) => {
             <div className="col-span-2 mb-8 lg:mb-0">
               <div className="flex items-center lg:justify-start">
                 <a href={logo?.url}>
-                  <img
-                    src={logo?.src}
-                    alt={logo?.alt}
+                  <Image
+                    src={logo?.src ?? ""}
+                    alt={logo?.alt ?? ""}
+                    width={52}
+                    height={52}
                     title={logo?.title}
-                    className="h-7 dark:invert"
                   />
                 </a>
               </div>

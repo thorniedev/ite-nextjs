@@ -11,18 +11,15 @@ export default function page() {
   return (
     <div className="min-h-screen">
 
-        <NavbarComponent />
+        {/* <NavbarComponent /> */}
 
          {/* <AddToCartComponent /> */}
 
-         <LiftingStateComponent />
+         {/* <LiftingStateComponent /> */}
 
         <ProductList/>
 
-        <FooterComponent />
-
-       
-
+        {/* <FooterComponent /> */}
     </div>
   )
 }
