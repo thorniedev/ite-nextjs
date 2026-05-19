@@ -2,6 +2,7 @@
 
 import BlogComponent from "@/components/Blog/BlogComponent";
 import { BlogType } from "@/lib/Types/BlogType";
+import Link from "next/link";
 
 
 type BlogResponse = {
@@ -57,13 +58,16 @@ export default function BlogList() {
         {
         blogs?.map((blog, index) => (
           // <BlogComponent key={index} {...blog} /> or
-          <BlogComponent 
+          <Link key={blog.id} href={`/blog/${blog.id}`}>
+            <BlogComponent 
             key={index}
             id={blog.id}
             title={blog.title}
             body={blog.body}
             views={blog.views}
           />
+          </Link>
+          
         ))
       }
       </div>
