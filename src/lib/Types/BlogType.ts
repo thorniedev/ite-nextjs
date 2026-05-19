@@ -1,6 +1,8 @@
 
+
 export type BlogType = {
-    profile: string;
-    name: string;
-    position: string;
+    id: number;
+    title: string;
+    body: string;
+    views: number;
 }

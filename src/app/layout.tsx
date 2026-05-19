@@ -21,9 +21,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html
       lang="en"
@@ -32,6 +30,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
 
         <NavbarComponent />
+        <h1>Wellcome to RootLayout!!!</h1>
         {children}
         <FooterComponent />
         </body>
