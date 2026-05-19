@@ -18,8 +18,8 @@ export const navLink: NavType[] = [
         active: false,
     },
     {
-        path: '/users',
-        name: 'users',
+        path: '/blog',
+        name: 'blog',
         active: true,
     }
 ]

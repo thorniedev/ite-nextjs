@@ -1,3 +1,4 @@
+
 'use client';
 
 import BlogComponent from "@/components/Blog/BlogComponent";
@@ -8,16 +9,17 @@ import Link from "next/link";
 type BlogResponse = {
     posts: BlogType[];
   }
-  
+
+const url = process.env.NEXT_PUBLIC_API_URL;
+
 async function fetchBlogs(): Promise<BlogType[]> {
     try {
-      const response = await fetch('https://dummyjson.com/posts');
+      const response = await fetch(`${url}/posts`);
 
       const data: BlogResponse = await response.json();
       return data.posts;
   
     } catch (error) {
-      console.error('Error fetching blogs:', error);
       throw error;
     }
 }

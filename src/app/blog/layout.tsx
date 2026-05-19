@@ -6,15 +6,13 @@ export default function BlogLayout({
     children: React.ReactNode
 }) {
   return (
-
-        <body className="min-h-full flex flex-col">
-
+        <div className="min-h-full flex flex-col">
+            
             <h1>Blog Layout</h1>
 
             <section>
                 {children}
             </section>
-
-        </body>
+        </div>
   )
 }

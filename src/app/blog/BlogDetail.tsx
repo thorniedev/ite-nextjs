@@ -1,8 +1,10 @@
 import BlogComponent from "@/components/Blog/BlogComponent";
 import { BlogType } from "@/lib/Types/BlogType";
 
+const url = process.env.NEXT_PUBLIC_API_URL;
+
 async function fetchBlogById(id: string): Promise<BlogType> {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
+    const res = await fetch(`${url}/posts/${id}`);
     return res.json();
 }
 
