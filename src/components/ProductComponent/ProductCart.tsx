@@ -37,7 +37,7 @@ export default function ProductCart({
   const productName = name ?? title ?? "Untitled product";
   const productImage = thumbnail ?? image ?? "/next.svg";
   const productPrice = priceOut ?? price ?? 0;
-  const detailHref = href ?? (uuid ? `/dashboard/products/${uuid}` : id ? `/products/${id}` : undefined);
+  const detailHref = href ?? (uuid ? `/products/${uuid}` : id ? `/products/${id}` : undefined);
 
   return (
     <Card className="relative mx-auto h-full w-full max-w-sm overflow-hidden rounded-2xl border border-slate-100 pt-0 shadow-md">

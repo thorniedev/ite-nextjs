@@ -1,9 +1,34 @@
+import { notFound } from "next/navigation";
 
+import ProductDetailView from "@/components/ProductComponent/ProductDetailView";
+import { createProductMetadata } from "@/lib/product-metadata";
+import { getProductByUuid } from "@/lib/products";
 
-export default function page() {
+type PublicProductDetailPageProps = {
+  params: Promise<{
+    id: string;
+  }>;
+};
+
+export async function generateMetadata({ params }: PublicProductDetailPageProps) {
+  const { id } = await params;
+
+  return createProductMetadata(id);
+}
+
+export default async function PublicProductDetailPage({
+  params,
+}: PublicProductDetailPageProps) {
+  const { id } = await params;
+  const product = await getProductByUuid(id);
+
+  if (!product) {
+    notFound();
+  }
+
   return (
-    <div>
-        <h1>Dynamic Routing NextJS</h1>
-    </div>
-  )
+    <main className="mx-auto w-full max-w-5xl px-6 py-12">
+      <ProductDetailView product={product} />
+    </main>
+  );
 }

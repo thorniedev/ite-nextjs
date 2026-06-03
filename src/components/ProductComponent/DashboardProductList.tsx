@@ -31,7 +31,7 @@ export default async function DashboardProductList() {
             <ProductCart
               key={product.uuid}
               {...product}
-              href={`/dashboard/products/${product.uuid}`}
+              href={`/products/${product.uuid}`}
             />
           ))}
         </div>

@@ -1,6 +1,14 @@
-// app/dashboard/layout.tsx
-
+import type { Metadata } from "next";
 import React from "react";
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+  description: "Manage products, blogs, and settings.",
+  robots: {
+    index: false,
+    follow: false,
+  },
+};
 
 export default function DashboardLayout({
   children,

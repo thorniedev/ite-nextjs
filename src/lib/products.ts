@@ -1,4 +1,5 @@
 import { ProductType } from "@/lib/product-type/ProductType";
+import { cache } from "react";
 
 type ProductApiPayload = {
   data?: ProductType[] | { content?: ProductType[] };
@@ -46,8 +47,8 @@ export async function getProducts() {
   return extractProducts(payload);
 }
 
-export async function getProductByUuid(uuid: string) {
+export const getProductByUuid = cache(async (uuid: string) => {
   const products = await getProducts();
 
   return products.find((product) => product.uuid === uuid) ?? null;
-}
+});
