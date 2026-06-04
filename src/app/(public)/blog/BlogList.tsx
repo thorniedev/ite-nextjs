@@ -1,34 +1,10 @@
 
-'use client';
-
 import BlogComponent from "@/components/Blog/BlogComponent";
-import { BlogType } from "@/lib/Types/BlogType";
+import { getBlogs } from "@/lib/blogs";
 import Link from "next/link";
 
-
-type BlogResponse = {
-    posts: BlogType[];
-  }
-
-const url = process.env.NEXT_PUBLIC_API_URL;
-
-async function fetchBlogs(): Promise<BlogType[]> {
-    try {
-      const response = await fetch(`${url}/posts`);
-
-      const data: BlogResponse = await response.json();
-      return data.posts;
-  
-    } catch (error) {
-      throw error;
-    }
-}
-
-const blogs = await fetchBlogs();
-
-// console.log(blogs)
-
-export default function BlogList() {
+export default async function BlogList() {
+  const blogs = await getBlogs();
 
   // const blogs:BlogType[] = [
   //   {

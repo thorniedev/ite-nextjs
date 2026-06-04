@@ -1,18 +1,8 @@
 import BlogComponent from "@/components/Blog/BlogComponent";
-import { BlogType } from "@/lib/Types/BlogType";
+import { getBlogById } from "@/lib/blogs";
 
-const url = process.env.NEXT_PUBLIC_API_URL;
-
-async function fetchBlogById(id: string): Promise<BlogType> {
-    const res = await fetch(`${url}/posts/${id}`);
-    return res.json();
-}
-
-export default async function BlogDetail({
-    params
-}: { params: { id: string } }) {
-    
-    const blog = await fetchBlogById(params.id);
+export default async function BlogDetail({ id }: { id: string }) {
+    const blog = await getBlogById(id);
 
     return (
         <div className="container mx-auto py-8">
